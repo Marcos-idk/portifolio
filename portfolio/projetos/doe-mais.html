@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f8f7f3"><meta name="description" content="Doe+ — projeto de gestão de doações com Java e Spring Boot. Portfólio de Marcos Santos."><title>Doe+ — Marcos Santos</title><link rel="icon" type="image/svg+xml" href="../assets/favicon.svg"><script>try { document.documentElement.dataset.theme = localStorage.getItem('portfolio-theme') === 'dark' ? 'dark' : 'light'; } catch { document.documentElement.dataset.theme = 'light'; }</script><link rel="stylesheet" href="../styles.css">
+<style>
+.detail-header { padding: 27px 0; border-bottom: 1px solid #e0e4dc; }
+.detail-nav { display:flex; justify-content:space-between; align-items:center; }
+.detail-back { font-size:14px; color:#5a705e; }
+.detail-hero { padding-block:94px 58px; }
+.detail-hero h1 { font-size:clamp(66px,10vw,130px); letter-spacing:-.075em; font-weight:500; line-height:1; margin:20px 0 26px; }
+.detail-hero h1 em { color:#9eac9b; }
+.detail-intro { max-width:690px; color:#657268; font-size:19px; line-height:1.75; }
+.detail-cover { width:100%; border-radius:16px; display:block; border:1px solid #e4e2da; }
+.detail-content { padding-block:82px 120px; display:grid; grid-template-columns: .8fr 1.2fr; gap:95px; }
+.detail-content h2 { font-size:clamp(34px,4vw,53px); font-weight:500; letter-spacing:-.055em; margin:10px 0 22px; }
+.detail-content p { color:#657268; line-height:1.9; margin:0 0 20px; }
+.detail-kicker { font-size:11px; letter-spacing:1.7px; color:#8b9a8d; }
+.detail-tech { display:flex; flex-wrap:wrap; gap:10px; margin:25px 0 35px; }
+.detail-tech span { background:#f0f4ef; border:1px solid #d8e0d6; color:#667c6a; font-size:12px; padding:10px 13px; border-radius:6px; }
+.detail-foot { padding:42px 0; border-top:1px solid #e0e4dc; }
+.detail-foot a { font-weight:600; color:#59735f; }
+@media(max-width:760px) { .detail-hero { padding-block:65px 35px; } .detail-content { grid-template-columns:1fr; gap:12px; padding-block:65px; } .detail-intro { font-size:16px; } }
+</style></head>
+<body>
+<header class="detail-header"><div class="container detail-nav"><a class="wordmark" href="../index.html#inicio">marcos<span>.</span></a><div class="detail-back-wrap"><a class="detail-back" href="../index.html#pessoais">← Voltar aos projetos</a><button type="button" class="theme-toggle" id="themeToggle" aria-label="Ativar tema escuro" aria-pressed="false"><span id="themeGlyph" aria-hidden="true">☾</span><span id="themeText">Escuro</span></button></div></div></header>
+<main>
+<section class="container detail-hero"><p class="section-index">PROJETO PESSOAL / BACKEND</p><h1>Doe<em>+</em></h1><p class="detail-intro">Um sistema demonstrativo para registrar doações de dinheiro e itens, acompanhar pendências e apoiar a organização de uma comunidade.</p></section>
+<section class="container"><img class="detail-cover" src="../assets/doeplus-cover.svg" alt="Ilustração conceitual do projeto Doe+, com cartões de organização e um coração" width="1200" height="800"></section>
+<section class="container detail-content"><div><p class="detail-kicker">01 / SOBRE O PROJETO</p><h2>Software com<br>propósito.</h2></div><div><p>O Doe+ surgiu da ideia de utilizar desenvolvimento de software para auxiliar na administração de doações. O contexto do projeto é a organização de registros e informações importantes para a rotina de uma comunidade religiosa.</p><p>A aplicação usa Java 21, Spring Boot, Spring Data JPA e H2, com uma API REST. A interface é construída em HTML, CSS e JavaScript e possui alternância entre tema claro e escuro.</p><p>Esta versão demonstrativa permite cadastrar, editar, listar, filtrar, marcar como recebidas e excluir doações. Ela não processa pagamentos e não possui autenticação; é destinada a estudos e uso local.</p><div class="detail-tech"><span>Java 21</span><span>Spring Boot</span><span>API REST</span><span>JPA</span><span>H2</span></div><a class="button button-primary" href="../downloads/doeplus-java.zip" download>Baixar projeto Java <span aria-hidden="true">↓</span></a></div></section>
+</main><footer class="detail-foot"><div class="container"><a href="../index.html#pessoais">← Voltar ao portfólio</a></div></footer>
+<script src="../theme.js" defer></script></body></html>

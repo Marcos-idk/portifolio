@@ -1,0 +1,16 @@
+ENTREGA — DOE+ JAVA + PORTFÓLIO ATUALIZADO
+
+1) doeplus-java/
+   Aplicação nova feita em Java 21 + Spring Boot + H2.
+   Para abrir: leia doeplus-java/README.md.
+   No Eclipse: File > Import > Maven > Existing Maven Projects.
+   Execute DoePlusApplication.java e abra http://localhost:8080.
+
+2) portfolio/
+   Seu portfólio HTML/CSS/JS atualizado.
+   Abra portfolio/index.html no navegador.
+   O tema claro/escuro funciona também no portfólio.
+   A seção Doe+ possui um download do sistema Java.
+
+IMPORTANTE: portfólio pode ir ao GitHub Pages; servidor Java precisa
+ser executado separadamente. Este pacote não processa pagamentos.

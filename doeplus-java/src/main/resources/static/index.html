@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f1">
+  <meta name="description" content="Doe+ — painel demonstrativo de gestão de doações em Java e Spring Boot.">
+  <title>Doe+ | Gestão de doações</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script>
+    try { document.documentElement.dataset.theme = localStorage.getItem('doeplus-theme') === 'dark' ? 'dark' : 'light'; }
+    catch { document.documentElement.dataset.theme = 'light'; }
+  </script>
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#painel">Pular para o painel</a>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="#painel" class="brand" aria-label="Doe Mais, início"><span class="brand-mark">✳</span> doe<span class="plus">+</span></a>
+      <div class="topbar-right">
+        <span class="topbar-tag">gestão de doações</span>
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Ativar tema escuro" aria-pressed="false"><span id="themeIcon" aria-hidden="true">☾</span><span id="themeLabel">Tema escuro</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="painel">
+    <section class="intro">
+      <div>
+        <p class="eyebrow"><span class="eyebrow-dot"></span> CUIDADO EM COMUNIDADE · SISTEMA DEMONSTRATIVO</p>
+        <h1>Doar aproxima.<br><em>Organizar transforma.</em></h1>
+        <p class="intro-text">Um lugar simples para registrar e acompanhar doações recebidas por sua comunidade. Sem complicações, com tudo em ordem.</p>
+        <div class="intro-actions"><a class="primary-link" href="#nova-doacao">Registrar doação <span aria-hidden="true">↗</span></a><a href="#historico" class="secondary-link">Ver registros <span aria-hidden="true">↓</span></a></div>
+      </div>
+      <div class="hero-illustration" role="img" aria-label="Ilustração abstrata em tons pastéis, com um coração e caixas de doações">
+        <div class="illustration-circle"><span>♡</span></div><div class="illustration-card card-one">cuidado <span>✳</span></div><div class="illustration-card card-two">compartilhar <span>+</span></div><p>Pequenos gestos.<br>Grande impacto.</p>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Resumo de doações">
+      <div class="stat"><p>Doações registradas</p><strong id="totalDoacoes">—</strong><small>Todos os registros</small></div>
+      <div class="stat"><p>Doações recebidas</p><strong id="totalRecebidas">—</strong><small>Registros concluídos</small></div>
+      <div class="stat"><p>Pendentes</p><strong id="totalPendentes">—</strong><small>Aguardando recebimento</small></div>
+      <div class="stat highlight"><p>Valor recebido</p><strong id="valorRecebido">—</strong><small>Somente doações em dinheiro</small></div>
+    </section>
+
+    <div class="content-grid">
+      <section class="panel form-panel" id="nova-doacao" aria-labelledby="formTitle">
+        <div class="panel-heading"><div><p class="section-label">01 / CADASTRO</p><h2 id="formTitle">Nova doação<span class="period">.</span></h2></div><span class="panel-icon" aria-hidden="true">＋</span></div>
+        <p class="panel-description">Preencha os dados para adicionar um registro.</p>
+        <form id="formDoacao" novalidate>
+          <input type="hidden" name="id" id="doacaoId">
+          <div class="field"><label for="doador">Nome do doador</label><input id="doador" name="doador" autocomplete="off" maxlength="100" placeholder="Ex.: Maria Silva" required></div>
+          <div class="two-cols">
+            <div class="field"><label for="tipo">Tipo de doação</label><select id="tipo" name="tipo" required><option value="DINHEIRO">Dinheiro</option><option value="ALIMENTO">Alimentos</option><option value="ROUPA">Roupas</option><option value="HIGIENE">Higiene</option><option value="OUTRO">Outros itens</option></select></div>
+            <div class="field"><label for="quantidade" id="quantidadeLabel">Valor (R$)</label><input id="quantidade" name="quantidade" type="number" min="0.01" step="0.01" placeholder="0,00" required></div>
+          </div>
+          <div class="two-cols">
+            <div class="field"><label for="data">Data</label><input id="data" name="data" type="date" required></div>
+            <div class="field"><label for="status">Situação</label><select id="status" name="status"><option value="RECEBIDA">Recebida</option><option value="PENDENTE">Pendente</option></select></div>
+          </div>
+          <div class="field"><label for="observacao">Observação <small>(opcional)</small></label><textarea id="observacao" name="observacao" rows="3" maxlength="300" placeholder="Informações adicionais sobre a doação"></textarea></div>
+          <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+          <div class="form-actions"><button class="primary-btn" type="submit" id="submitButton">Salvar doação <span aria-hidden="true">↗</span></button><button class="text-btn" type="button" id="cancelEdit" hidden>Cancelar edição</button></div>
+        </form>
+      </section>
+      <section class="panel history-panel" id="historico" aria-labelledby="historyTitle">
+        <div class="panel-heading"><div><p class="section-label">02 / ACOMPANHAMENTO</p><h2 id="historyTitle">Histórico<span class="period">.</span></h2></div><span class="panel-icon" aria-hidden="true">≡</span></div>
+        <p class="panel-description">Consulte os registros e atualize o andamento das doações.</p>
+        <div class="filters"><label class="search-label"><span class="sr-only">Buscar por doador</span><input id="busca" type="search" placeholder="Buscar por doador..."></label><label class="sr-only" for="filtroStatus">Filtrar por situação</label><select id="filtroStatus"><option value="TODOS">Todas</option><option value="RECEBIDA">Recebidas</option><option value="PENDENTE">Pendentes</option></select></div>
+        <div id="listagem" class="donation-list" aria-live="polite"><div class="empty"><span class="empty-flower" aria-hidden="true">✳</span><h3>Carregando doações...</h3></div></div>
+        <p id="listMessage" class="list-message" role="status"></p>
+      </section>
+    </div>
+    <p class="disclaimer"><span aria-hidden="true">ⓘ</span> Projeto demonstrativo para portfólio. Não processa pagamentos, não possui autenticação e não deve armazenar dados pessoais reais sem adaptações de segurança.</p>
+  </main>
+  <footer><div class="container footer-inner"><span class="footer-logo">doe<span>+</span></span><p>Feito com Java e Spring Boot · tecnologia a serviço das pessoas.</p><span>Projeto de estudos</span></div></footer>
+</body>
+</html>
